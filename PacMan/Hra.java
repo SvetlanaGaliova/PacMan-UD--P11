@@ -7,9 +7,9 @@ import fri.shapesge.Manazer;
  * - ma spust(), pauza(), ukonci()
  */
 public class Hra {
-    protected boolean bezi;
-    protected int celkoveSkore;
-    protected Manazer manazer;
+    private boolean bezi;
+    private int celkoveSkore;
+    private Manazer manazer;
     public Hra() {
         this.bezi = false;
         this.celkoveSkore = 0;

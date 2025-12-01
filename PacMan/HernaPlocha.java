@@ -5,19 +5,18 @@ import fri.shapesge.Kruh;
 
 /**
  * HernaPlocha:
- * - dedi od Hra (podla UML)
- * - v konstruktore len vykresli staticku PacMan mapu
+ * - v konstruktore len vykresli PacMan mapu podla daneho Stringu
  */
 public class HernaPlocha extends Hra {
 
     
-    private static final int SIRKA_OKNA = 608;
-    private static final int VYSKA_OKNA = 704;
-    private static final int VELKOST_DLAZDICE = 32;
+    private int sirkaOkna = 608;
+    private int vyskaOkna = 704;
+    private int velkostDlazky = 32;
 
     // 19 x 21
     // '#' = stena, '.' = pellet, ' ' = prazdne
-    private static final String[] MAPA = {
+    private String[] MAPA = {
         "###################",
         "#........#........#",
         "#.##.###.#.###.##.#",
@@ -57,23 +56,24 @@ public class HernaPlocha extends Hra {
             for (int stlpec = 0; stlpec < r.length(); stlpec++) {
                 char ch = r.charAt(stlpec);
 
-                int x = stlpec * VELKOST_DLAZDICE;
-                int y = riadok * VELKOST_DLAZDICE;
+                int x = stlpec * velkostDlazky;
+                int y = riadok * velkostDlazky;
 
                 if (ch == '#') {
                    
                     Stvorec stena = new Stvorec(
-                        VELKOST_DLAZDICE,
-                        VELKOST_DLAZDICE
+                        velkostDlazky,
+                        velkostDlazky
                     );
                     stena.zmenPolohu(x, y);
                     stena.zmenFarbu("blue");
                     stena.zobraz();
                 } else if (ch == '.') {
+                    //totok som len testoval, mozno sa to vyuzije kto vie
                     // pellet = maly kruh v strede dlazdice
-                    //int priemer = VELKOST_DLAZDICE / 4;
-                    //int pelletX = x + (VELKOST_DLAZDICE - priemer) / 2;
-                    //int pelletY = y + (VELKOST_DLAZDICE - priemer) / 2;
+                    //int priemer = velkostDlazky / 4;
+                    //int pelletX = x + (velkostDlazky - priemer) / 2;
+                    //int pelletY = y + (velkostDlazky - priemer) / 2;
 
                     //Kruh pellet = new Kruh();
                     //pellet.zmenPriemer(priemer);
@@ -81,7 +81,7 @@ public class HernaPlocha extends Hra {
                     //pellet.zmenFarbu("yellow");
                     //pellet.zobraz();
                 }
-                // medzera = nic
+                
             }
         }
     }
