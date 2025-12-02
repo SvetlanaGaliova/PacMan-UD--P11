@@ -7,13 +7,12 @@ import fri.shapesge.Kruh;
  * HernaPlocha:
  * - v konstruktore len vykresli PacMan mapu podla daneho Stringu
  */
-public class HernaPlocha extends Hra {
-
+public class HernaPlocha{
     
     private int sirkaOkna = 608;
     private int vyskaOkna = 704;
     private int velkostDlazky = 32;
-
+    private Hrac hrac;
     // 19 x 21
     // '#' = stena, '.' = pellet, ' ' = prazdne
     private String[] MAPA = {
@@ -29,7 +28,7 @@ public class HernaPlocha extends Hra {
         "####.#.## ##.#.####",
         ".......#   #.......",
         "####.#.#####.#.####",
-        "   #.#.......#.#   ",
+        "   #.#...H...#.#   ",
         "####.#.#####.#.####",
         "#........#........#",
         "#.##.###.#.###.##.#",
@@ -44,7 +43,6 @@ public class HernaPlocha extends Hra {
     public HernaPlocha() {
         super();
         this.vykresliMapu();
-        this.spust();
     }
 
     /**
@@ -60,34 +58,25 @@ public class HernaPlocha extends Hra {
                 int y = riadok * velkostDlazky;
 
                 if (ch == '#') {
-                   
-                    Stvorec stena = new Stvorec(
-                        velkostDlazky,
-                        velkostDlazky
-                    );
+                    Stvorec stena = new Stvorec(velkostDlazky,velkostDlazky);
                     stena.zmenPolohu(x, y);
                     stena.zmenFarbu("blue");
                     stena.zobraz();
                 } else if (ch == '.') {
-                    //totok som len testoval, mozno sa to vyuzije kto vie
-                    // pellet = maly kruh v strede dlazdice
-                    //int priemer = velkostDlazky / 4;
-                    //int pelletX = x + (velkostDlazky - priemer) / 2;
-                    //int pelletY = y + (velkostDlazky - priemer) / 2;
-
-                    //Kruh pellet = new Kruh();
-                    //pellet.zmenPriemer(priemer);
-                    //pellet.zmenPolohu(pelletX, pelletY);
-                    //pellet.zmenFarbu("yellow");
-                    //pellet.zobraz();
+                    Pellet pellet = new Pellet();
+                } else if (ch == 'H'){
+                    this.hrac = new Hrac(this, this.velkostDlazky, x, y);
                 }
                 
             }
         }
     }
-
-    //spusti len vykreslenie mapy
-    public static void main(String[] args) {
-        new HernaPlocha();
+    
+    public String[] getMapa(){
+        return this.MAPA;
     }
+    public void vymazePelet(){
+        //posli skrySa(), a najdi na pozici, a na pozicii nastav null
+    }
+    
 }

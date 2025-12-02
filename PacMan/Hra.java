@@ -7,6 +7,7 @@ import fri.shapesge.Manazer;
  * - ma spust(), pauza(), ukonci()
  */
 public class Hra {
+    private HernaPlocha hernaPlocha;
     private boolean bezi;
     private int celkoveSkore;
     private Manazer manazer;
@@ -15,9 +16,11 @@ public class Hra {
         this.celkoveSkore = 0;
         this.manazer = new Manazer();
         this.manazer.spravujObjekt(this);
+        this.spust();
     }
     public void spust() {
         this.bezi = true;
+        this.hernaPlocha = new HernaPlocha();
     }
     public void pauza() {
         this.bezi = !this.bezi;
