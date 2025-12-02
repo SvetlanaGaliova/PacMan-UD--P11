@@ -14,6 +14,7 @@ public class Pellet {
     private int x;
     private int y;
     private int velkost;
+    private int priemer;
     
     public Pellet(int x, int y, int velkostDlazdice) {
         this.x = x;
@@ -21,9 +22,10 @@ public class Pellet {
         this.velkost = velkostDlazdice;
         
         this.kruh = new Kruh();
-        this.kruh.zmenPriemer((this.velkost/4));
-        this.kruh.zmenPolohu(this.x, this.y);
-        this.kruh.zmenFarbu("Pink");
+        this.priemer = (this.velkost/4);
+        this.kruh.zmenPriemer(this.priemer);
+        this.kruh.zmenPolohu(this.x - (this.priemer/2), this.y - (this.priemer/2));
+        this.kruh.zmenFarbu("pink");
         this.jeZjedeny = false;
         this.kruh.zobraz();
     }

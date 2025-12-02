@@ -21,8 +21,8 @@ public class Hrac {
         this.skore = 0;
         
         //vypocet stredu hraca (kvoli tomu aby bol hrac s tred konkrotneho policka)
-        this.x = (x + velkostDlazdice) / 2;
-        this.y = (y + velkostDlazdice) / 2;
+        this.x = x;
+        this.y = y;
         
         this.velkostDlazdice = velkostDlazdice;
         this.plocha = plocha;
@@ -30,7 +30,7 @@ public class Hrac {
         this.kruh = new Kruh();
         this.priemer = (this.velkostDlazdice/4) * 3;
         this.kruh.zmenPriemer(priemer);
-        this.kruh.zmenPolohu(this.x - (priemer/2), this.y - (priemer/2));
+        this.kruh.zmenPolohu(this.x - (this.priemer/2), this.y - (this.priemer/2));
         this.kruh.zmenFarbu("yellow");
         this.kruh.zobraz();
     }
