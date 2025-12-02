@@ -1,30 +1,29 @@
-/**
- * Write a description of class Duch here.
- * 
- * @author Daniel Gajdo≈° 
- * @version v1
+/*
+Trieda Duch reprezentuje ducha (nepriateæa) v hre PacMan.
  */
 public class Duch {
     private int x;
     private int y;
     private Hrac hrac;
-    
+
     public Duch(Hrac hrac) {
         this.hrac = hrac;
         this.x = 0;
         this.y = 0;
     }
-    
-    // Vrati X-ovu suradnicu ducha.//
+
+    //Vrati X-ovu suradnicu ducha.//
     public int getX() {
         return this.x;
     }
-    // Vrati Y-ovu suradnicu ducha.//
+
+    //Vrati Y-ovu suradnicu ducha.//
     public int getY() {
         return this.y;
-    }  
-    // Pohne duchom.//
+    }
+
+    //Pohne duchom//
     public void pohniSa() {
-        
+
     }
 }
