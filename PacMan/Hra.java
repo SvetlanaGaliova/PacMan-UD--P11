@@ -11,6 +11,7 @@ public class Hra {
     private boolean bezi;
     private int celkoveSkore;
     private Manazer manazer;
+    private OvladanieHraca ovladac;
     public Hra() {
         this.bezi = false;
         this.celkoveSkore = 0;
@@ -21,6 +22,7 @@ public class Hra {
     public void spust() {
         this.bezi = true;
         this.hernaPlocha = new HernaPlocha();
+        this.ovladac = new OvladanieHraca(this.hernaPlocha.getHrac());
     }
     public void pauza() {
         this.bezi = !this.bezi;
