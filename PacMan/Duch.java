@@ -1,5 +1,5 @@
 /*
-Trieda Duch reprezentuje ducha (nepriateľa) v hre PacMan.
+Trieda Duch reprezentuje ducha (nepriatela) v hre PacMan.
  */
 public class Duch {
     private int x;
