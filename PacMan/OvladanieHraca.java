@@ -18,19 +18,19 @@ public class OvladanieHraca {
     }
     
     public void posunVlavo() {
-        this.zvolenySmer(Smer.DOLAVA);
+        this.zvolenySmer = Smer.DOLAVA;
     }
     
     public void posunVpravo() {
-        this.zvolenySmer(Smer.DOPRAVA);
+        this.zvolenySmer = Smer.DOPRAVA;
     }
     
     public void posunHore() {
-        this.zvolenySmer(Smer.HORE);
+        this.zvolenySmer = Smer.HORE;
     }
     
     public void posunDole() {
-        this.zvolenySmer(Smer.DOLE);
+        this.zvolenySmer = Smer.DOLE;
     }
     
     public void tik() {
