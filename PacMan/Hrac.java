@@ -61,16 +61,16 @@ public class Hrac {
         int predpokladY = this.y;
         
         switch (smer) {
-            case Smer.HORE :
+            case HORE :
                 predpokladY -= krok;
                 break;
-            case Smer.DOLE :
+            case DOLE :
                 predpokladY += krok;
                 break;
-            case Smer.DOLAVA:
+            case DOLAVA:
                 predpokladX -= krok;
                 break;
-            case Smer.DOPRAVA :
+            case DOPRAVA :
                 predpokladX += krok;
                 break;
         }

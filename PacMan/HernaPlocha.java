@@ -75,6 +75,10 @@ public class HernaPlocha{
         return this.MAPA;
     }
     
+    public Hrac getHrac(){
+        return this.hrac;
+    }
+    
     public void vymazePelet(){
         //posli skrySa(), a najdi na pozici, a na pozicii nastav null
     }
