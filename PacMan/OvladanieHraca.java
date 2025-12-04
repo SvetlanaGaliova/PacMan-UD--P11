@@ -1,20 +1,21 @@
+/**
+ * Trieda OvladanieHraca zistuje smer, ktorym sa chce hrac posunut.
+ * 
+ * @author Ivana Neuschlová
+ */
+
 import fri.shapesge.Manazer;
 
 public class OvladanieHraca {
     private Manazer manazer;
     private Hrac pacman;
-    private Smer aktualnySmer;
     private Smer zvolenySmer;
     
     public OvladanieHraca(Hrac pacman) {
         this.manazer = new Manazer();
         this.pacman = pacman;
+        this.zvolenySmer = Smer.HORE;
         this.manazer.spravujObjekt(this);
-    }
-    
-    // nastavi aktualny smer, ktorym sa pohybuje pacman
-    public void zistiAktualnySmer() {
-        this.aktualnySmer = this.zvolenySmer;
     }
     
     public void posunVlavo() {
