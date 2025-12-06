@@ -79,7 +79,7 @@ public class Hrac {
      * @param kolko Kolko bodov ma pripocitat.
      */
     public void setSkore(int kolko) {
-        this.skore =+ kolko;
+        this.skore += kolko;
     }
     
     /**
@@ -134,6 +134,11 @@ public class Hrac {
             this.x = predpokladX;
             this.y = predpokladY;
             this.kruh.zmenPolohu(this.x - (this.priemer/2), this.y - (this.priemer/2));
+            int zisk = this.plocha.vymazePelet(this.x, this.y);
+            if (zisk > 0) {
+                this.setSkore(zisk);
+
+            }
         }
     }
     
@@ -142,9 +147,9 @@ public class Hrac {
             return false; //nachadza sa mimo hernej plochy
         }
         
-        int cielRiadok = (predpokladY + (velkost/2)) / velkost;
-        int cielStlpec = (predpokladX + (velkost/2)) / velkost;
-        char ciel = mapa[cielRiadok-1].charAt(cielStlpec-1);
+        int cielRiadok = (predpokladY) / velkost;
+        int cielStlpec = (predpokladX) / velkost;
+        char ciel = mapa[cielRiadok].charAt(cielStlpec);
         
         if (ciel == '#') {
             return false;

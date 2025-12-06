@@ -7,7 +7,7 @@ import fri.shapesge.Manazer;
  * - vytvoriť ovládanie hráča
  * - držať informáciu, či hra beží alebo je pauznutá
  * - držať a upravovať celkové skóre
- * @author Lukas Blahut
+ * @author (Lukas Blahut)
  * @version 3.0 (4.12.2025)
  */
 public class Hra {
@@ -15,6 +15,7 @@ public class Hra {
     private boolean bezi;
     private int celkoveSkore;
     private Manazer manazer;
+    private Duch duch;
     private OvladanieHraca ovladac;
     public Hra() {
         this.bezi = false;
@@ -63,7 +64,13 @@ public class Hra {
     }
 
     public void tik() {
-        // zatial prazdne
+        if(!this.bezi){
+            return;
+        }
+        for(Duch d : this.hernaPlocha.getDuchovia()){
+            d.pohniSa();
+        }
+        
     }
 
     /**

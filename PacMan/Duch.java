@@ -1,3 +1,4 @@
+
 import fri.shapesge.Kruh;
 
 /**
@@ -43,6 +44,7 @@ public class Duch {
         this.kruh.zmenPolohu(this.x - (priemer / 2), this.y - (priemer / 2));
         this.kruh.zmenFarbu("red");
         this.kruh.zobraz();
+
     }
 
     /**
@@ -138,7 +140,7 @@ public class Duch {
      * @return true ak je pohyb mozny, false ak je na pozicii stena
      */
     private boolean mozeSaPohnut(int predpokladX, int predpokladY, String[] mapa, int velkost) {
-        if (predpokladX < 0 || predpokladX < 0 || (predpokladX / velkost) <= mapa[0].length() || (predpokladY / velkost) <= mapa.length) {
+        if (predpokladX < 0 || predpokladY < 0 || (predpokladX / velkost) >= mapa[0].length() || (predpokladY / velkost) >= mapa.length) {
             return false; //nachadza sa mimo hernej plochy
         }
         
@@ -151,5 +153,9 @@ public class Duch {
         } else {
             return true;
         }
+    }
+    
+    public void tik(){
+        this.pohniSa();
     }
 }

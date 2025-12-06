@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import fri.shapesge.Stvorec;
 import fri.shapesge.Kruh;
 
@@ -11,7 +11,7 @@ import fri.shapesge.Kruh;
  * - poskytovať metódy na získanie mapy, hráča a peliet.
  * - poskytovať metódu na vymazanie pelletu podľa pozície hráča.
  * 
- * @author Lukas Blahut
+ * @author (Lukas Blahut)
  * @version 3.0 (4.12.2025)
  */
 public class HernaPlocha{
@@ -21,6 +21,9 @@ public class HernaPlocha{
     private int velkostDlazky = 32;
     private Hrac hrac;
     private Duch duch;
+    
+    private ArrayList<Duch> duchovia = new ArrayList<Duch>();
+    
     /**
      * Dvojrozmerne pole peliet.
      * Index[riadok][stlpec] odpovedá pozícii v textovej mape.
@@ -40,7 +43,7 @@ public class HernaPlocha{
             "#........#........#",
             "#.##.###.#.###.##.#",
             "#.##.###.#.###.##.#",
-            "#.................#",
+            "#........H........#",
             "#.##.#.#####.#.##.#",
             "#....#...#...#....#",
             "####.###.#.###.####",
@@ -48,7 +51,7 @@ public class HernaPlocha{
             "####.#.## ##.#.####",
             ".......#DDD#.......",
             "####.#.#####.#.####",
-            "   #.#...H...#.#   ",
+            "   #.#.......#.#   ",
             "####.#.#####.#.####",
             "#........#........#",
             "#.##.###.#.###.##.#",
@@ -107,6 +110,7 @@ public class HernaPlocha{
                 }else if(ch == 'D'){
                     // vytvorenie ducha
                     Duch duch = new Duch(this, this.velkostDlazky, x, y, this.hrac);
+                    this.duchovia.add(duch);
                     this.peletky[riadok][stlpec] = null;
                 }else{
                     // prázdne políčko, bez steny a bez pelletu
@@ -151,13 +155,17 @@ public class HernaPlocha{
     public Duch getDuch(){
         return this.duch;
     }
+    
+    public ArrayList<Duch> getDuchovia(){
+        return this.duchovia;
+    }
 
     /**
      * Pokúsi sa odstrániť pellet na pozícii daných súradnic
      * Najprv prepočíta súradnice x, y na index riadku a stĺpca.
      * Potom skontroluje, či v poli peletky na danej pozícii existuje pellet.
-     * Ak áno, zavolá jeho metódu eat(), nastaví v poli hodnotu null.
-     * a vráti získané skóre. Ak tam pellet nie je, vráti 0.
+     * Ak áno, zavolá jeho metódu eat(), nastaví v poli hodnotu null, a vráti získané skóre.
+     * Ak tam pellet nie je, vráti 0.
      * @param x x-ová súradnica v pixeloch (napríklad stred hráča)
      * @param y y-ová súradnica v pixeloch (napríklad stred hráča)
      * @return hodnota skóre za zjednutý pellet alebo 0, ak tam pellet nebol
@@ -183,5 +191,9 @@ public class HernaPlocha{
         // na danej pozícii nebol žiadny aktívny pellet
         return 0;
     }
-
+    public void posunDuchov(){
+        for(Duch d : this.duchovia){
+            d.tik();
+        }
+    }
 }
